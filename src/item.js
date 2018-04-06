@@ -2,14 +2,15 @@
 
 
 export class Item {
-	static count = 0;
-
-	constructor( game ) {
+	constructor( game, itemName ) {
 		this.game = game;
+		this.itemName = itemName;
+
+		this.options = this.game.options.items[ this.itemName ];
+		this.value = this.options.value;
 	}
 
 	sell() {
-		Item.count++;
-		console.log( 'Sold!', Item.count );
+		this.game.sell( this );
 	}
 }

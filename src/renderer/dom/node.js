@@ -13,13 +13,14 @@ export class DOMNodeRenderer {
 
 		const icon = document.createElement( 'i' );
 		icon.classList.add( ...this.options.icon );
+		if( this.options.iconTransform ) {
+			icon.setAttribute( 'data-fa-transform', this.options.iconTransform.join( ' ' ) );
+		}
 		this.container.appendChild( icon );
 
 		this.text = document.createElement( 'b' );
-		this.text.style.position = 'absolute';
-		this.text.style.userSelect = 'none';
-		this.text.style.fontSize = '.5em';
-		this.text.style.color = 'red';
+		this.text.classList.add( 'text' );
+		this.text.style.color = this.options.textColor;
 		this.container.appendChild( this.text );
 	}
 
@@ -28,11 +29,12 @@ export class DOMNodeRenderer {
 		this.container.style.bottom = `${this.node.y}em`;
 		this.container.style.transform = `rotate(${this.node.d * .25}turn)`;
 
-		while( this.text.firstChild ) {
-			this.text.removeChild( this.text.firstChild );
-		}
 		const text = document.createTextNode( String( this.node.size ) );
-		this.text.appendChild( text );
+		if( this.text.firstChild ) {
+			this.text.replaceChild( text, this.text.firstChild );
+		} else {
+			this.text.appendChild( text );
+		}
 		this.text.style.transform = `rotate(-${this.node.d * .25}turn)`;
 
 		return this.container;

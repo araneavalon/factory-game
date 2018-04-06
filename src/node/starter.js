@@ -4,10 +4,10 @@ import { Node } from './node';
 
 
 export class Starter extends Node {
-	constructor( game, board, Item, x, y ) {
+	constructor( game, board, itemName, x, y ) {
 		super( game, board, x, y );
 
-		this.Item = Item;
+		this.itemName = itemName;
 
 		this.count = 0;
 	}
@@ -21,12 +21,12 @@ export class Starter extends Node {
 	}
 
 	tick() {
-		if( this.size >= 75 ) {
-			return;
-		}
 		if( this.front != null && this.front.canReceive() ) {
-			this.count++;
-			this.front.receive( new this.Item( this.game ) );
+			const item = this.game.buy( this.itemName );
+			if( item != null ) {
+				this.count++;
+				this.front.receive( item );
+			}
 		}
 	}
 }

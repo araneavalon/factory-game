@@ -10,6 +10,9 @@ DOMRenderer.addNodeRenderer( Starter, DOMNodeRenderer );
 import { Conveyor } from 'node/conveyor';
 DOMRenderer.addNodeRenderer( Conveyor, DOMNodeRenderer );
 
+import { Crafter } from 'node/crafter';
+DOMRenderer.addNodeRenderer( Crafter, DOMNodeRenderer );
+
 import { Seller } from 'node/seller';
 DOMRenderer.addNodeRenderer( Seller, DOMNodeRenderer );
 

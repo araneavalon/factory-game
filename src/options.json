@@ -9,15 +9,48 @@
 		"gridColor": "rgba(255, 255, 255, 0.5)",
 		"Starter": {
 			"color": "white",
-			"icon": [ "fas", "fa-arrow-alt-circle-up", "fa-xs" ],
+			"textColor": "red",
+			"icon": [ "fas", "fa-sign-out-alt", "fa-xs" ],
+			"iconTransform": [ "rotate--90" ]
 		},
 		"Conveyor": {
 			"color": "white",
+			"textColor": "red",
 			"icon": [ "fas", "fa-angle-double-up", "fa-xs" ]
+		},
+		"Crafter": {
+			"color": "white",
+			"textColor": "red",
+			"icon": [ "far", "fa-arrow-alt-circle-up", "fa-xs" ]
 		},
 		"Seller": {
 			"color": "white",
-			"icon": [ "fas", "fa-expand", "fa-xs" ]
+			"textColor": "red",
+			"icon": [ "fas", "fa-compress", "fa-xs" ]
 		}
+	},
+	"items": {
+		"Copper": { "value": 10 },
+		"Iron": { "value": 5 },
+		"CopperWire": { "value": 10 },
+		"IronRod": { "value": 10 },
+		"Electromagnet": { "value": 80 },
+	},
+	"blueprints": {
+		"CopperWire": {
+			"input": [ { "amount": 1, "itemName": "Copper" } ],
+			"output": { "amount": 2, "itemName": "CopperWire" }
+		},
+		"IronRod": {
+			"input": [ { "amount": 1, "itemName": "Iron" } ],
+			"output": { "amount": 1, "itemName": "IronRod" }
+		},
+		"Electromagnet": {
+			"input": [
+				{ "amount": 4, "itemName": "CopperWire" },
+				{ "amount": 1, "itemName": "IronRod" },
+			],
+			"output": { "amount": 1, "itemName": "Electromagnet" }
+		},
 	}
 }

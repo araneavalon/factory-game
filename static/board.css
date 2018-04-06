@@ -13,3 +13,9 @@
 	align-items: center;
 	justify-content: space-around;
 }
+
+.dom-renderer.node .text {
+	position: absolute;
+	user-select: none;
+	font-size: .5em;
+}

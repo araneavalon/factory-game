@@ -1,6 +1,7 @@
 'use strict';
 
 import { Board } from 'board';
+import { Item } from 'item';
 
 
 export class Game {
@@ -13,6 +14,8 @@ export class Game {
 		this.boards = [];
 
 		this.renderers = new Map();
+
+		this.money = 100;
 	}
 
 	addBoard() {
@@ -39,6 +42,8 @@ export class Game {
 			for( const node of board ) {
 				node.tick();
 			}
+		}
+		for( const board of this.boards ) {
 			for( const node of board ) {
 				node.executeTick();
 			}
@@ -47,5 +52,17 @@ export class Game {
 
 	render() {
 		this.renderers.get( this.board ).render();
+	}
+
+
+	buy( itemName ) {
+		const item = new Item( this, itemName );
+		this.money = this.money - item.value;
+		console.log( `Bought ${item.itemName} $${this.money} (-$${item.value}).` );
+		return item;
+	}
+	sell( item ) {
+		this.money = this.money + item.value;
+		console.log( `Sold ${item.itemName} $${this.money} (+$${item.value}).` );
 	}
 }

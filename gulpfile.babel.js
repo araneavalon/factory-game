@@ -74,16 +74,12 @@ const _lint = ( src, canFail = true ) => {
 
 const _makeBundle = ( b ) => {
 	b.external( VENDOR_IMPORTS )
-		.transform( babelify, production() ? {
-			presets: [ [ 'minify', {
-				keepClassName: true
-			} ]
-		] } : {} );
+		.transform( babelify );
 	return () => {
 		return b.bundle()
-			.on( 'error', ( { message, stack } ) => {
-				if( message !== 'write after end' ) {
-					gutil.log( 'Browserify Error:\n', stack );
+			.on( 'error', ( error ) => {
+				if( error.message !== 'write after end' ) {
+					gutil.log( 'Browserify Error:\n', error );
 				}
 			} )
 			.pipe( source( options.app.file ) )
