@@ -1,0 +1,15 @@
+
+.dom-renderer.board {
+	position: relative;
+	background-size: 1em 1em;
+	background-position: .5em .5em;
+}
+
+.dom-renderer.node {
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}

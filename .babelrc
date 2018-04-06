@@ -1,0 +1,17 @@
+{
+	"presets": [
+		[ "env", {
+			"targets": {
+				"browsers": [ "last 2 Chrome versions" ],
+			},
+			"exclude": [ "transform-regenerator" ],
+		} ],
+	],
+	"plugins": [
+		// transform-decorators-legacy must come before transform-class-properties
+		"transform-decorators-legacy",
+		"transform-class-properties",
+		"transform-object-rest-spread",
+		"transform-react-jsx",
+	]
+}

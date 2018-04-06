@@ -1,0 +1,10 @@
+[
+  "autobind-decorator",
+  "babel-polyfill",
+  "debug",
+  "@fortawesome/fontawesome",
+  "@fortawesome/fontawesome-free-regular",
+  "@fortawesome/fontawesome-free-solid",
+  "lodash",
+  { "file": "querystring-es3", "expose": "querystring" }
+]

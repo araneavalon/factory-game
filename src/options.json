@@ -1,0 +1,23 @@
+{
+	"board": {
+		"minWidth": 9,
+		"minHeight": 9,
+	},
+	"renderer": {
+		"nodeSize": "64px",
+		"backgroundColor": "#282828",
+		"gridColor": "rgba(255, 255, 255, 0.5)",
+		"Starter": {
+			"color": "white",
+			"icon": [ "fas", "fa-arrow-alt-circle-up", "fa-xs" ],
+		},
+		"Conveyor": {
+			"color": "white",
+			"icon": [ "fas", "fa-angle-double-up", "fa-xs" ]
+		},
+		"Seller": {
+			"color": "white",
+			"icon": [ "fas", "fa-expand", "fa-xs" ]
+		}
+	}
+}
